@@ -94,7 +94,7 @@ HardSID::HardSID (sidbuilder *builder) :
 
     {
         char device[20];
-        sprintf(device, "/dev/sid%u", m_instance);
+        snprintf(device, sizeof(device), "/dev/sid%u", m_instance);
         m_handle = open (device, O_RDWR);
         if (m_handle < 0)
         {
